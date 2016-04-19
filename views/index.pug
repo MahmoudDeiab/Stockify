@@ -1,0 +1,71 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Stockify
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+    link(href='stylesheets/style.css', rel='stylesheet')
+    link(href="/bower_components/angular-chart.js/dist/angular-chart.css", rel="stylesheet")
+    script(src="/bower_components/Chart.js/Chart.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js")
+    script(src="/bower_components/angular-chart.js/dist/angular-chart.js")
+    script(src="/bower_components/angular-moment/angular-moment.min.js")
+    script(src="/bower_components/moment/min/moment.min.js")
+    script(src="scripts/async.js")
+    script(src="scripts/client.js")
+
+  body
+    div.container(ng-app="app", ng-controller="mainController")
+  
+      header.row
+        logo
+          img.img-responsive(src="images/stockify_logo.svg" alt="Stockify logo")
+      
+      
+      div.canvas-container
+        canvas#line.chart.chart-line(chart-data="chartData", chart-labels="chartLabels", chart-legend="true", chart-series="chartSeries", chart-options="chartOptions", chart-click="onClick")
+      
+      
+      div.row.table-container
+        div.row.table-operations
+          form.col-sm-6
+            div.form-group
+              div.input-group
+                div.input-group-addon
+                  i.fa.fa-search
+
+                input.form-control(type="text", placeholder="Search for stock", ng-model="searchStock")
+        
+          div.btn-container.col-sm-3
+            button#show-avg-btn.btn.btn-default(ng-click="showAverage()") Show Average
+          div.btn-container.col-sm-3
+            button#show-all-btn.btn.btn-default(ng-click="showAll()") Show All
+          
+        div.row.table-responsive
+          table.table.table-bordered.table-hover
+            
+            thead
+              tr
+                th.col-sm-2 Stock Symbol
+                th.col-sm-4
+                  a(ng-click="order('name')") Company Name
+                  span.fa.fa-angle-down(ng-show="predicate === 'name' && !reverse")
+                  span.fa.fa-angle-up(ng-show="predicate === 'name' && reverse")
+                th.col-sm-3
+                  a(ng-click="order('previousClose')") Previous Close Price ($)
+                  span.fa.fa-angle-down(ng-show="predicate === 'previousClose' && !reverse")
+                  span.fa.fa-angle-up(ng-show="predicate === 'previousClose' && reverse")
+                th.col-sm-3 Market Cap ($)
+            
+            tbody
+              tr(ng-repeat="stock in stocks | orderBy:predicate:reverse | filter:searchStock", ng-click="showStockGraph(stock.symbol)")
+                td {{ stock.symbol }}
+                td {{ stock.name }}
+                td {{ stock.previousClose }}
+                td {{ stock.marketCapitalization }}
+        
+      footer.row
+        p Created with love and lots of Lipton&reg Peach Ice Tea by Mahmoud Deiab. 
+             

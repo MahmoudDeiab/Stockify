@@ -1,0 +1,22 @@
+{
+  "name": "yahoofinplot",
+  "description": "Simple app to plot historic data from Yahoo! Finance API.",
+  "main": "server.js",
+  "authors": [
+    "Mahmoud Deiab"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-chart.js": "^0.10.0",
+    "angular-moment": "^0.10.3"
+  }
+}

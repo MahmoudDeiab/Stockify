@@ -1,0 +1,207 @@
+/* Sass variable declarations */
+/* Sass mixins */
+@font-face {
+  font-family: "Circular";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Circular/circular-light.woff2") format("woff2"), url("fonts/circular-light.woff") format("woff"); }
+@font-face {
+  font-family: "Circular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Circular/circular-book.woff2") format("woff2"), url("fonts/circular-book.woff") format("woff"); }
+@font-face {
+  font-family: "Circular";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Circular/circular-medium.woff2") format("woff2"), url("fonts/circular-medium.woff") format("woff"); }
+@font-face {
+  font-family: "Circular";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Circular/circular-bold.woff2") format("woff2"), url("fonts/circular-bold.woff") format("woff"); }
+@font-face {
+  font-family: "Circular";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Circular/circular-black.woff2") format("woff2"), url("fonts/circular-black.woff") format("woff"); }
+/* General style rules */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  font-family: "Circular", Helvetica, sans-serif;
+  color: #b6bfc9;
+  background-color: #2a2a31;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, 180deg, from(#2c2c34), to(#2a2a31));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(180deg, #2c2c34, #2a2a31);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(180deg, #2c2c34, #2a2a31);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(180deg, #2c2c34, #2a2a31);
+  /* IE10 */
+  background-image: -o-linear-gradient(180deg, #2c2c34, #2a2a31);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(180deg, #2c2c34, #2a2a31);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle,StartColorStr='#2c2c34', EndColorStr='#2a2a31'); }
+  @media (max-width: 48em) {
+    body {
+      padding-right: 25px;
+      padding-left: 25px; } }
+
+/* Header styles */
+header img {
+  padding-top: 50px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+/* Chart style rules */
+.canvas-container {
+  margin-top: 50px;
+  height: 75vh; }
+  @media (max-width: 48em) {
+    .canvas-container {
+      margin-bottom: 10px; } }
+
+/* This rule fixes a bug in chartjs-angular library */
+.chart-container {
+  height: calc(75vh - 2.85rem - 5px); }
+
+.line-legend li {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  border-radius: 5px;
+  margin: 2px 8px 2px 28px;
+  font-size: smaller;
+  cursor: default; }
+  @media (max-width: 48em) {
+    .line-legend li {
+      margin: 2px 8px 2px 28px; } }
+
+.line-legend-text {
+  padding-left: 25px;
+  padding-top: 4px; }
+
+/* Table style rules */
+table thead {
+  background-color: #17bab8;
+  color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+  /* 24px */ }
+  table thead th {
+    height: 50px; }
+    table thead th a {
+      color: white;
+      cursor: pointer; }
+      table thead th a:hover {
+        color: white;
+        text-decoration: none; }
+    table thead th span {
+      margin-left: 10px; }
+table tbody td {
+  height: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  /* 50px */ }
+
+.table-container {
+  margin-top: 50px;
+  margin-bottom: 20px; }
+
+.table-operations {
+  margin-bottom: 20px; }
+  .table-operations form {
+    padding-left: 0; }
+    @media (max-width: 48em) {
+      .table-operations form {
+        padding-right: 0; } }
+  .table-operations .btn-container {
+    padding-right: 0; }
+    @media (max-width: 48em) {
+      .table-operations .btn-container {
+        margin-top: 10px;
+        padding-left: 0; } }
+  .table-operations button {
+    width: 100%;
+    border-radius: 50px;
+    font-size: 2rem;
+    height: 45px;
+    text-decoration: none;
+    border: none; }
+
+.form-control,
+.input-group-addon {
+  border: 1px solid #b6bfc9;
+  color: #b6bfc9;
+  background-color: transparent;
+  border-radius: 50px;
+  font-size: 2rem;
+  height: 45px;
+  outline: none; }
+
+#show-avg-btn {
+  -moz-transition: background-color, 0.5s;
+  -o-transition: background-color, 0.5s;
+  -webkit-transition: background-color, 0.5s;
+  transition: background-color, 0.5s;
+  color: #2c2c34;
+  background-color: white;
+  outline: none; }
+  #show-avg-btn:hover {
+    -moz-transition: border, background, color 0.5s 0.3s 0.5s;
+    -o-transition: border, background, color 0.5s 0.3s 0.5s;
+    -webkit-transition: border, background, color 0.5s 0.3s 0.5s;
+    transition: border, background, color 0.5s 0.3s 0.5s;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white; }
+
+#show-all-btn {
+  -moz-transition: background-color, 0.5s;
+  -o-transition: background-color, 0.5s;
+  -webkit-transition: background-color, 0.5s;
+  transition: background-color, 0.5s;
+  color: white;
+  background-color: #17bab8;
+  outline: none; }
+  #show-all-btn:hover {
+    -moz-transition: border, background, color 0.5s 0.3s 0.5s;
+    -o-transition: border, background, color 0.5s 0.3s 0.5s;
+    -webkit-transition: border, background, color 0.5s 0.3s 0.5s;
+    transition: border, background, color 0.5s 0.3s 0.5s;
+    background-color: transparent;
+    border: 1px solid #17bab8;
+    color: #17bab8; }
+
+.table-bordered {
+  border: 1px solid #17bab8; }
+
+.table-bordered > thead > tr > th {
+  border: none; }
+
+.table-bordered > tbody > tr > td {
+  border: 1px #404048 solid; }
+
+.table-hover tbody tr:hover td {
+  background-color: #27272d;
+  cursor: pointer; }
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  vertical-align: middle; }
+
+footer {
+  text-align: center;
+  margin-bottom: 50px; }
+
+@media (max-width: 48em) {
+  .row {
+    margin-left: 0;
+    margin-right: 0; } }
+
+/*# sourceMappingURL=style.css.map */
